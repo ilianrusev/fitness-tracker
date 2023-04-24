@@ -1,0 +1,32 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.links-container {
+  width: 100%;
+}
+
+.links-container ul {
+  display: flex;
+  justify-content: end;
+  list-style: none;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 599px) {
+  .links-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .menu-button {
+    display: none;
+  }
+}
