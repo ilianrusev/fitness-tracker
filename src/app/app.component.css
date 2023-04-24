@@ -28,3 +28,15 @@ a:active {
   list-style: none;
   gap: 1rem;
 }
+
+@media screen and (max-width: 599px) {
+  .links-container {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 599px) {
+  .menu-button {
+    display: none;
+  }
+}
