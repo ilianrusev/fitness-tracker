@@ -1,0 +1,10 @@
+.new-training {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+mat-card {
+  text-align: center;
+  padding: 3rem;
+}
