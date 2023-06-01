@@ -1,0 +1,9 @@
+.filter-input-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-input-wrapper mat-form-field {
+  width: 20%;
+}
