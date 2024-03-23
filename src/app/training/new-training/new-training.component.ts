@@ -3,7 +3,7 @@ import { ExerciseService } from '../exercise.service';
 import { Exercise } from '../exercise.model';
 import { NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, Subscription, map } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-new-training',
