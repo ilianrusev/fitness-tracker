@@ -2,8 +2,18 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { vars } from 'variables';
+
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: vars.apiKey,
+    authDomain: vars.authDomain,
+    projectId: vars.projectId,
+    storageBucket: vars.storageBucket,
+    messagingSenderId: vars.messagingSenderId,
+    appId: vars.appId,
+  },
 };
 
 /*
