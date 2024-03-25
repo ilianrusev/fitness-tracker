@@ -50,7 +50,7 @@ export class ExerciseService {
               3000
             );
             this.store.dispatch(
-              fromTraining.setAvailableTrainings({ payload: [] })
+              fromTraining.setAvailableTrainings({ payload: null })
             );
           },
         })
