@@ -24,13 +24,12 @@ export class ExerciseService {
         .pipe(
           map((docArr) => {
             return docArr.map((doc) => {
-              throw new Error();
-              // return {
-              //   id: doc.payload.doc.id,
-              //   name: doc.payload.doc.data().name,
-              //   calories: doc.payload.doc.data().calories,
-              //   duration: doc.payload.doc.data().duration,
-              // };
+              return {
+                id: doc.payload.doc.id,
+                name: doc.payload.doc.data().name,
+                calories: doc.payload.doc.data().calories,
+                duration: doc.payload.doc.data().duration,
+              };
             });
           })
         )
