@@ -24,19 +24,30 @@ export class ExerciseService {
         .pipe(
           map((docArr) => {
             return docArr.map((doc) => {
-              return {
-                id: doc.payload.doc.id,
-                name: doc.payload.doc.data().name,
-                calories: doc.payload.doc.data().calories,
-                duration: doc.payload.doc.data().duration,
-              };
+              throw new Error();
+              // return {
+              //   id: doc.payload.doc.id,
+              //   name: doc.payload.doc.data().name,
+              //   calories: doc.payload.doc.data().calories,
+              //   duration: doc.payload.doc.data().duration,
+              // };
             });
           })
         )
-        .subscribe((exercises: Exercise[]) => {
-          this.uiService.loadingStateChanged.next(false);
-          this.availableExercises = exercises;
-          this.exercisesChanged.next([...this.availableExercises]);
+        .subscribe({
+          next: (exercises: Exercise[]) => {
+            this.uiService.loadingStateChanged.next(false);
+            this.availableExercises = exercises;
+            this.exercisesChanged.next([...this.availableExercises]);
+          },
+          error: (error) => {
+            this.uiService.loadingStateChanged.next(false);
+            this.uiService.showSnackbar(
+              'Fetching Exercises failed, please try again later',
+              3000
+            );
+            this.exercisesChanged.next(null);
+          },
         })
     );
   }
