@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-title>Time to start a workout!</mat-card-title>
       <mat-card-content>
-        <mat-form-field appearance="fill" *ngIf="isLoading && exercises">
+        <mat-form-field appearance="fill" *ngIf="!isLoading && exercises">
           <mat-label>Choose Exercise</mat-label>
           <mat-select ngModel name="exercise" required>
             <mat-option
