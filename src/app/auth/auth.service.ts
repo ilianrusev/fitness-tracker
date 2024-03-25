@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ExerciseService } from '../training/exercise.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable()
 export class AuthService {
   authChange = new Subject<boolean>();
@@ -13,7 +14,8 @@ export class AuthService {
   constructor(
     private router: Router,
     private auth: AngularFireAuth,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private snackbar: MatSnackBar
   ) {}
 
   initAuthListener() {
@@ -36,7 +38,9 @@ export class AuthService {
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then((result) => {})
       .catch((error) => {
-        console.log(error);
+        this.snackbar.open('The SignUp was unseccessful.', undefined, {
+          duration: 3000,
+        });
       });
   }
 
@@ -45,7 +49,7 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then((result) => {})
       .catch((error) => {
-        console.log(error);
+        this.snackbar.open('Wrong credentials!', undefined, { duration: 3000 });
       });
   }
 
