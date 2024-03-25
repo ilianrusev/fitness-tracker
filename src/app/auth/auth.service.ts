@@ -16,7 +16,6 @@ export class AuthService {
     private router: Router,
     private auth: AngularFireAuth,
     private exerciseService: ExerciseService,
-    private snackbar: MatSnackBar,
     private uiService: UIService
   ) {}
 
@@ -44,9 +43,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.uiService.loadingStateChanged.next(false);
-        this.snackbar.open('The SignUp was unseccessful.', undefined, {
-          duration: 3000,
-        });
+        this.uiService.showSnackbar('The SignUp was unseccessful.', 3000);
       });
   }
 
@@ -59,7 +56,7 @@ export class AuthService {
       })
       .catch((error) => {
         this.uiService.loadingStateChanged.next(false);
-        this.snackbar.open('Wrong credentials!', undefined, { duration: 3000 });
+        this.uiService.showSnackbar('Wrong credentials!', 3000);
       });
   }
 
