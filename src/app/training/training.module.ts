@@ -8,6 +8,8 @@ import { PastTrainingsComponent } from './past-trainings/past-trainings.componen
 import { NewTrainingComponent } from './new-training/new-training.component';
 import { StopTrainingComponent } from './current-training/stop-training.component';
 import { TrainingRoutingModule } from './training-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { trainingReducer } from './training.reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,12 @@ import { TrainingRoutingModule } from './training-routing.module';
     StopTrainingComponent,
   ],
 
-  imports: [SharedModule, AngularFirestoreModule, TrainingRoutingModule],
+  imports: [
+    SharedModule,
+    AngularFirestoreModule,
+    TrainingRoutingModule,
+    StoreModule.forFeature('training', trainingReducer),
+  ],
   entryComponents: [StopTrainingComponent],
 })
 export class TrainingModule {}
