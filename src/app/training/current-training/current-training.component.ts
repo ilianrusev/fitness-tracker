@@ -3,9 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { StopTrainingComponent } from './stop-training.component';
 import { ExerciseService } from '../exercise.service';
 import { Store } from '@ngrx/store';
-import * as fromTraining from '../training.reducer';
 import { Exercise } from '../exercise.model';
 import { take } from 'rxjs';
+import * as fromTraining from '../training.reducer';
 
 @Component({
   selector: 'app-current-training',
